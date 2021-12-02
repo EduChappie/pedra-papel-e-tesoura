@@ -1,12 +1,7 @@
-'''
-
-                            Online Python Interpreter.
-                Code, Compile, Run and Debug python program online.
-Write your code in this editor and press "Run" button to execute it.
-
-'''
 import random
 
+
+pont = {'pc': 0, 'player': 0}
 answer = str(input("Let's play a game? (y/n)"));
 if answer == "y":
     game = bool(True)
@@ -27,9 +22,11 @@ def escoia(num):
 
 
 while game:
-    print("=========")
+    """print("Vitórias")
+    print(f"PC: {pont['pc']} - Player: {pont['player']}")"""
+    print("="*24)
     hc = int(input("(1)Pedra, (2)Papel ou (3)Tesoura? - "));
-    print("=========")
+    print("="*24)
     hp = int(random.uniform(1,4));
     
     # Decisão do game
@@ -41,16 +38,22 @@ while game:
         
     else:
         status = "empate"
-    
+
     print("Você: {}".format(escoia(hc)));
     print("PC: {}".format(escoia(hp)));
-    
+
     if status == "ganhou":
+        pont['player'] += 1
         print("Você ganhou!!!")
+
     elif status == "perdeu":
+        pont['pc'] += 1
         print("Você perdeu!!")
+
     elif status == "empate":
         print("Meh... empate")
+
+    print(f"{'='*30}\n Vitórias\nPC: {pont['pc']} - Player: {pont['player']}\n{'='*30}")
     
-    print("======================")
+    print("="*24)
     
